@@ -43,8 +43,9 @@ DEFAULT_REQUEST_HEADERS = {
     'Accept-Encoding': 'gzip',
     'User-Agent': 'com.ss.android.ugc.aweme/310 (Linux; U; Android 9; zh_CN; ONEPLUS A6000; Build/PKQ1.180716.001; Cronet/58.0.2991.0)',
     'sdk-version': '1',
-    'X-SS-REQ-TICKET': '1541037772377',
+    'X-SS-REQ-TICKET': '1541132020222',
     'X-SS-TC': '0',
+    'X-Tt-Token': '00d1ac40d7945f93852bbae4bb81bc4b6ad4c8fdf72b12ac1090fbaf4a82e90e25697f1509b70e2b661311c75e519a544f51',
     'Connection': 'keep-alive',
     'Host': 'aweme.snssdk.com'
 }

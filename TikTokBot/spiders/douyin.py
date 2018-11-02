@@ -41,33 +41,37 @@ class DouyinSpider(scrapy.Spider):
     def parse(self, response):
         item = TiktokbotItem()
         json_object = json.loads(response.body.decode('utf-8'))
-        print(json_object)
+        # print(json_object)
         datas = json_object.get('data')
         object_list = []
         for data in datas:
             if('user_list' in data):
                 user_list = data.get('user_list')
-                for user in user_list:
-                    user_info = user.get('user_info')
-                    nickname = user_info.get('nickname')
-                    birthday = user_info.get('birthday')
-                    signature = user_info.get('signature')
-                    id = user_info.get('unique_id')
-            else:
-                aweme_info = data.get('aweme_info')
-                aweme_id = aweme_info.get('aweme_id')
-                desc = aweme_info.get('desc')
-                play_addr = aweme_info.get('video').get('play_addr').get('url_list')
-                down_addr = aweme_info.get('video').get('download_addr').get('url_list')
-                play_data = {
-                    'Id': aweme_id,
-                    '简介': desc,
-                    '纯链接': play_addr,
-                    '下载链接': down_addr,
-                }
-                play_data_list = play_data.copy()
-                object_list.append(dict(play_data_list))
-        print(object_list)
+                user=user_list[0]
+                uid=user.get('user_info').get('uid')
+        # print(uid)
+        #         for user in user_list:
+        #             user_info = user.get('user_info')
+        #             nickname = user_info.get('nickname')
+        #             birthday = user_info.get('birthday')
+        #             signature = user_info.get('signature')
+        #             id = user_info.get('unique_id')
+        #             uid=user_info.get('uid')
+        #     else:
+        #         aweme_info = data.get('aweme_info')
+        #         aweme_id = aweme_info.get('aweme_id')
+        #         desc = aweme_info.get('desc')
+        #         play_addr = aweme_info.get('video').get('play_addr').get('url_list')
+        #         down_addr = aweme_info.get('video').get('download_addr').get('url_list')
+        #         play_data = {
+        #             'Id': aweme_id,
+        #             '简介': desc,
+        #             '纯链接': play_addr,
+        #             '下载链接': down_addr,
+        #         }
+        #         play_data_list = play_data.copy()
+        #         object_list.append(dict(play_data_list))
+        # print(object_list)
 
 
 

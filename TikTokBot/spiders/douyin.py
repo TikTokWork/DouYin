@@ -32,6 +32,7 @@ class DouyinSpider(scrapy.Spider):
         'as': 'a1655c4d14bffb4edb6899', 'cp': 'c4f2ba5f44b8d2e4e1aiOm', 'mas': '01ba655c793ea7e1590398abacaa88d2d99c9c1c6c4626a62c4666'
     }
     data = urlencode(para)
+    count = 0
 
     base_url = 'https://aweme.snssdk.com/aweme/v1/general/search/single/'
     url = base_url + '?' + data
@@ -71,14 +72,16 @@ class DouyinSpider(scrapy.Spider):
         para_url = urlencode(para)
         base_url = 'https://aweme.snssdk.com/aweme/v1/aweme/post/'
         next_url = base_url + '?' + para_url
-        return scrapy.Request(url=next_url, callback=self.parse_user)
+        yield scrapy.Request(url=next_url, callback=self.parse_user)
 
     def parse_user(self, response):
         item = TiktokbotItem()
         json_object = json.loads(response.body.decode('utf-8'))
-        print(json_object)
+        # print(json_object)
         aweme_list = json_object.get('aweme_list')
+        max_cursor = json_object.get('max_cursor')
         object_list = []
+        id = ''
         for aweme_item in aweme_list:
             id = aweme_item.get('author_user_id')
             desc = aweme_item.get('desc')
@@ -93,11 +96,40 @@ class DouyinSpider(scrapy.Spider):
                 '下载链接': download_addr,
                 '无水印链接': play_addr
             }
+            self.count = self.count+1
+
 
             data_add = data.copy()
             object_list.append(dict(data_add))
 
+        para = {
+            'max_cursor': max_cursor, 'user_id': id ,
+            'count': '20', 'retry_type': 'no_retry',
+            'ts': '1541132020', 'js_sdk_version': '1.2.2', 'app_type': 'normal',
+            'manifest_version_code': '310', '_rticket': '1541132020223',
+            'ac': 'wifi', 'device_id': '53910643127',
+            'iid': '48828704455', 'os_version': '9',
+            'channel': 'douyin_tengxun_wzl', 'version_code': '310',
+            'device_type': 'ONEPLUS%20A6000', 'language': 'zh',
+            'uuid': '869897033037051', 'resolution': '1080*2200',
+            'openudid': '0061ee21378e2667', 'update_version_code': '3102',
+            'app_name': 'aweme', 'version_name': '3.1.0',
+            'os_api': '28', 'device_brand': 'OnePlus', 'ssmix': 'a',
+            'device_platform': 'android', 'dpi': '420', 'aid': '1128',
+            'as': 'a1655c4d14bffb4edb6899', 'cp': 'c4f2ba5f44b8d2e4e1aiOm',
+            'mas': '01ba655c793ea7e1590398abacaa88d2d99c9c1c6c4626a62c4666'
+        }
+        para_url = urlencode(para)
+        base_url = 'https://aweme.snssdk.com/aweme/v1/aweme/post/'
+        next_url = base_url + '?' + para_url
+
+        yield scrapy.Request(url=next_url, callback=self.parse_user)
+
         print(object_list)
+        print(self.count)
+
+
+
 
 
 

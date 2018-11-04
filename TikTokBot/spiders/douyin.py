@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 import json
 import time
 
-from TikTokBot.items import TiktokbotItem
+from TikTokBot.items import TiktokbotItem,DouYinBotItem
 
 
 class DouyinSpider(scrapy.Spider):
@@ -33,6 +33,7 @@ class DouyinSpider(scrapy.Spider):
     }
     data = urlencode(para)
     count = 0
+    total_count = 0
 
     base_url = 'https://aweme.snssdk.com/aweme/v1/general/search/single/'
     url = base_url + '?' + data
@@ -40,17 +41,17 @@ class DouyinSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        item = TiktokbotItem()
         json_object = json.loads(response.body.decode('utf-8'))
         # print(json_object)
         datas = json_object.get('data')
-        object_list = []
         uid = ''
         for data in datas:
             if('user_list' in data):
                 user_list = data.get('user_list')
                 user = user_list[0]
                 uid = user.get('user_info').get('uid')
+                self.total_count = user.get('user_info').get('aweme_count')
+                print(self.total_count)
 
         para = {
             'max_cursor': '0', 'user_id': uid,
@@ -75,7 +76,7 @@ class DouyinSpider(scrapy.Spider):
         yield scrapy.Request(url=next_url, callback=self.parse_user)
 
     def parse_user(self, response):
-        item = TiktokbotItem()
+        douyin_item = DouYinBotItem()
         json_object = json.loads(response.body.decode('utf-8'))
         # print(json_object)
         aweme_list = json_object.get('aweme_list')
@@ -89,18 +90,28 @@ class DouyinSpider(scrapy.Spider):
             download_addr = aweme_item.get('video').get('download_addr').get('url_list')
             play_addr = aweme_item.get('video').get('play_addr')
 
-            data = {
-                '用户Id': id,
-                '用户昵称': nickname,
-                '视频简介': desc,
-                '下载链接': download_addr,
-                '无水印链接': play_addr
-            }
+            douyin_item['id'] = id
+            douyin_item['description'] = desc
+            douyin_item['nickname'] = nickname
+            douyin_item['play_addr'] = play_addr
+            douyin_item['download_addr'] = download_addr
+            douyin_item['user_art'] = self.total_count
+
+            yield douyin_item
+
+            # data = {
+            #     '用户Id': id,
+            #     '用户昵称': nickname,
+            #     '视频简介': desc,
+            #     '下载链接': download_addr,
+            #     '无水印链接': play_addr
+            # }
+
             self.count = self.count+1
 
 
-            data_add = data.copy()
-            object_list.append(dict(data_add))
+            # data_add = data.copy()
+            # object_list.append(dict(data_add))
 
         para = {
             'max_cursor': max_cursor, 'user_id': id ,
@@ -123,10 +134,12 @@ class DouyinSpider(scrapy.Spider):
         base_url = 'https://aweme.snssdk.com/aweme/v1/aweme/post/'
         next_url = base_url + '?' + para_url
 
-        yield scrapy.Request(url=next_url, callback=self.parse_user)
 
-        print(object_list)
-        print(self.count)
+        if(self.count < self.total_count):
+            yield scrapy.Request(url=next_url, callback=self.parse_user)
+
+        # print(object_list)
+        # print(self.count)
 
 
 

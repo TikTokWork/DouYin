@@ -19,10 +19,9 @@ class TiktokbotMongoDBPipeline(object):
 
     def process_item(self, item, spider):
         dict_item = dict(item)
-        flag = {'id': dict_item.get('id')}
         if isinstance(item, DouYinBotItem):
-            self.douyin.update(flag, dict_item, upsert=True)
+            self.douyin.insert_one(dict_item)
             return item
         elif isinstance(item, TiktokbotItem):
-            self.tiktok.update(flag, dict_item, upsert=True)
+            self.tiktok.insert_one(dict_item)
             return item

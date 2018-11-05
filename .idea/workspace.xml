@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3852907-802a-4552-8479-2fe2b7b10f31" name="Default Changelist" comment="v1.1&#10;解决抖音爬虫问题">
+    <list default="true" id="a3852907-802a-4552-8479-2fe2b7b10f31" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TikTokBot/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TikTokBot/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TikTokBot/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/TikTokBot/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TikTokBot/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/TikTokBot/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TikTokBot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TikTokBot/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TikTokBot/spiders/douyin.py" beforeDir="false" afterPath="$PROJECT_DIR$/TikTokBot/spiders/douyin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +14,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TikTokBot$start.coverage" NAME="start Coverage Results" MODIFIED="1541132688447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DouYin$start.coverage" NAME="start Coverage Results" MODIFIED="1541334084133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DouYin$start.coverage" NAME="start Coverage Results" MODIFIED="1541334525437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-2104384717">
@@ -52,48 +50,53 @@
     <session id="2107931514">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1691" />
-          <entry key="txt" value="21" />
+          <entry key="html" value="32" />
+          <entry key="py" value="1706" />
+          <entry key="txt" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="1691" />
+          <entry key="HTML" value="32" />
+          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="Python" value="1706" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="html" value="1" />
+          <entry key="py" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="HTML" value="1" />
+          <entry key="Python" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TikTokBot/spiders/douyin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+            <state relative-caret-position="2720">
+              <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -104,14 +107,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TikTokBot/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="160">
+              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding>
                 <element signature="e#193#207#0" expanded="true" />
-                <marker date="1541333945789" expanded="true" signature="306:311" ph="..." />
-                <marker date="1541333945789" expanded="true" signature="330:339" ph="..." />
-                <marker date="1541333945789" expanded="true" signature="330:544" ph="..." />
+                <marker date="1541334518695" expanded="true" signature="306:311" ph="..." />
+                <marker date="1541334518695" expanded="true" signature="330:339" ph="..." />
+                <marker date="1541334518695" expanded="true" signature="330:544" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TikTokBot/app.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TikTokBot/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -119,11 +136,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TikTokBot/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            <state relative-caret-position="672">
+              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding>
                 <marker date="1541333806385" expanded="true" signature="202:207" ph="..." />
-                <marker date="1541333806385" expanded="true" signature="503:735" ph="..." />
               </folding>
             </state>
           </provider>
@@ -146,7 +162,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TikTokBot/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2111">
+            <state relative-caret-position="2272">
               <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
             </state>
           </provider>
@@ -155,7 +171,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TikTokBot/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
+            <state relative-caret-position="224">
               <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
             </state>
           </provider>
@@ -172,6 +188,14 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -187,8 +211,10 @@
       <list>
         <option value="$PROJECT_DIR$/TikTokBot/items.py" />
         <option value="$PROJECT_DIR$/TikTokBot/settings.py" />
-        <option value="$PROJECT_DIR$/TikTokBot/pipelines.py" />
         <option value="$PROJECT_DIR$/TikTokBot/spiders/douyin.py" />
+        <option value="$PROJECT_DIR$/TikTokBot/pipelines.py" />
+        <option value="$PROJECT_DIR$/TikTokBot/app.py" />
+        <option value="$PROJECT_DIR$/TikTokBot/templates/index.html" />
       </list>
     </option>
   </component>
@@ -228,7 +254,14 @@
               <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
               <item name="DouYin" type="462c0819:PsiDirectoryNode" />
               <item name="TikTokBot" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DouYin" type="462c0819:PsiDirectoryNode" />
+              <item name="TikTokBot" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -237,6 +270,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NewsBot" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
@@ -300,7 +334,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541142949398</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v1.1">
+      <created>1541334175271</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1541334175271</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v1.1">
+      <created>1541334764461</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1541334764461</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -316,7 +364,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27760968" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -350,9 +398,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1.0&#10;解决抖音爬虫问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.0&#10;解决抖音爬虫问题" />
+    <MESSAGE value="v1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TikTokBot/spiders/douyin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2720">
+          <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TikTokBot/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <marker date="1541333806385" expanded="true" signature="202:207" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TikTokBot/spiders/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -363,6 +432,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TikTokBot/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2272">
+          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TikTokBot/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/start.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -370,51 +453,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TikTokBot/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TikTokBot/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2111">
-          <caret line="71" column="49" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TikTokBot/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="160">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding>
             <element signature="e#193#207#0" expanded="true" />
-            <marker date="1541333945789" expanded="true" signature="306:311" ph="..." />
-            <marker date="1541333945789" expanded="true" signature="330:339" ph="..." />
-            <marker date="1541333945789" expanded="true" signature="330:544" ph="..." />
+            <marker date="1541334518695" expanded="true" signature="306:311" ph="..." />
+            <marker date="1541334518695" expanded="true" signature="330:339" ph="..." />
+            <marker date="1541334518695" expanded="true" signature="330:544" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TikTokBot/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <marker date="1541333806385" expanded="true" signature="202:207" ph="..." />
-            <marker date="1541333806385" expanded="true" signature="503:735" ph="..." />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/TikTokBot/app.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TikTokBot/spiders/douyin.py">
+    <entry file="file://$PROJECT_DIR$/TikTokBot/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="224">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>

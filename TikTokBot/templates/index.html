@@ -14,29 +14,27 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/justified-nav.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">抖音&TikTok视频下载</a>
-        </div>
+    <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-center">抖音&TikTok视频下载</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="index.html">主页</a></li>
+            <li><a href="DouYin.html">抖音视频下载</a></li>
+            <li><a href="TikTok.html">TikTok视频下载</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </nav>
       </div>
-    </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
@@ -52,7 +50,7 @@
         <div class="col-md-4">
           <h2>TikTok视频下载</h2>
           <p>本模块提供TikTok视频的无水印下载，搜索TikTok账号可以获取该账号的全部作品视频链接URL</p>
-          <input id="tiktok-user-id" placeholder="请输入账号"/>
+          <input id="tiktok-user-id" type="text" placeholder="请输入账号"/>
           <br>
           <p><a id="tiktok-button" class="btn btn-default" href="TikTok.html" role="button">搜索 &raquo;</a></p>
         </div>
@@ -61,7 +59,7 @@
         <div class="col-md-4">
           <h2>抖音视频下载</h2>
           <p>本模块提供抖音视频的无水印下载，搜索抖音号可以获取该账号的全部作品视频链接URL</p>
-          <input id="douyin-user-id" placeholder="请输入账号"/>
+          <input id="douyin-user-id" type="text" placeholder="请输入账号"/>
           <br>
           <p><a class="btn btn-default" href="DouYin.html" role="button" id="douyin-button">搜索 &raquo;</a></p>
         </div>
@@ -78,5 +76,10 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </body>
 </html>

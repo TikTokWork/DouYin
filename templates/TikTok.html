@@ -15,8 +15,8 @@
     <!-- Custom styles for this template -->
     <link href="/static/css/style.css" rel="stylesheet">
     <link href="/static/css/justified-nav.css" rel="stylesheet">
-
-
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/ajax.js"></script>
 </head>
 <body>
 
@@ -26,8 +26,8 @@
         <nav>
           <ul class="nav nav-justified">
             <li><a href="/">主页</a></li>
-            <li class="active"><a href="/douyin">抖音视频下载</a></li>
-            <li><a href="/tiktok">TikTok视频下载</a></li>
+            <li><a href="/douyin">抖音视频下载</a></li>
+            <li class="active"><a href="/tiktok">TikTok视频下载</a></li>
             <li><a href='/about'>关于我们</a></li>
             <li><a href="/contact">联系我们</a></li>
           </ul>
@@ -35,7 +35,19 @@
     </div>
 
     <!--从后端获取的数据显示-->
-    <h2 class="sub-header">视频下载</h2>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4 center">
+            <input class="form-control" id="douyin-user-id" type="text" placeholder="请输入账号"/>
+        </div>
+
+        <div class="col-md-4 center">
+            <button id="douyin-button" class="btn btn-primary">搜索>></button>
+        </div>
+    </div>
     <ul class="nav nav-justified">
         <li><h3>作者id: </h3></li>
         <li><h3>作者昵称：</h3></li>
@@ -97,7 +109,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/static/js/ajax.js"></script>
+
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

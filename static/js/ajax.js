@@ -1,11 +1,9 @@
 $(document).ready(function () {
 
     //AJAX控制获取用户输入并且传给后端
-    $("#douyin-button").mouseover(function () {
-        $.css("background", "red");
-    }).click(function () {
-        $.css("background", "blue");
+    $("#douyin-button").click(function () {
         var requestData = {'id': $("#douyin-user-id").val()};
+        alert(requestData);
         $.ajax({
             url: "http://localhost:5000/api/douyin",
             dataType: "json",
@@ -13,7 +11,7 @@ $(document).ready(function () {
             type: "GET",
             success: function (response) {
                 alert("请求成功");
-                var authorId = response["id"];
+                var authorId = response["douyin_id"];
                 var authorDesc = response["author_desc"];
                 var nickname = response["nickname"];
                 var list = response["aweme_list"];
@@ -42,10 +40,7 @@ $(document).ready(function () {
 
     });
 
-    $("#tiktok-button").mouseover(function () {
-        $.css("background", "red");
-    }).click(function () {
-        $.css("background", "blue");
+    $("#tiktok-button").click(function () {
         var requestData = {'id': $("#tiktok-user-id").val()};
         $.ajax({
             url: "/api/tiktok",
@@ -54,7 +49,7 @@ $(document).ready(function () {
             type: "GET",
             success: function (response) {
                 alert("请求成功");
-                var authorId = response["id"];
+                var authorId = response["douyin_id"];
                 var authorDesc = response["author_desc"];
                 var nickname = response["nickname"];
                 var list = response["aweme_list"];

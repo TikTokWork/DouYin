@@ -12,17 +12,19 @@ class TiktokbotItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     id = scrapy.Field() #用户uid
+    douyin_id = scrapy.Field() # 用户id
+    author_desc = scrapy.Field() # 用户简介
     user_art = scrapy.Field() # 用户所有作品
     description = scrapy.Field() #用户简介
     play_addr = scrapy.Field() #用户纯链接
-    down_addr = scrapy.Field() #用户生成的下载链接
 
 class DouYinBotItem(scrapy.Item):
     id = scrapy.Field() #用户uid
     nickname = scrapy.Field() #用户昵称
+    douyin_id = scrapy.Field()  # 用户id
+    author_desc = scrapy.Field()  # 用户简介
     user_art = scrapy.Field() # 用户所有作品
-    description = scrapy.Field() #用户简介
-    play_addr = scrapy.Field() #用户纯链接
-    download_addr = scrapy.Field() #用户生成的下载链接
+    description = scrapy.Field() #作品简介
+    play_addr = scrapy.Field() #所有作品纯链接
 
 

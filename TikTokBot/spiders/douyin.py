@@ -11,6 +11,7 @@ class DouyinSpider(scrapy.Spider):
     allowed_domains = ['aweme.snssdk.com']
     count = 0
     total_count = 0
+    pure_douyin_id = ''
 
     def __init__(self, douyinId=None, *args, **kwargs):
         super(DouyinSpider, self).__init__(douyinId, **kwargs)
@@ -37,6 +38,7 @@ class DouyinSpider(scrapy.Spider):
         base_url = 'https://aweme.snssdk.com/aweme/v1/general/search/single/'
         url = base_url + '?' + data
         self.start_urls = [url]
+        self.pure_douyin_id = douyinId
 
     def parse(self, response):
         json_object = json.loads(response.body.decode('utf-8'))
@@ -83,16 +85,19 @@ class DouyinSpider(scrapy.Spider):
         id = ''
         for aweme_item in aweme_list:
             id = aweme_item.get('author_user_id')
+            douyin_id = self.pure_douyin_id
+            author_desc = aweme_item.get('author').get('signature')
             desc = aweme_item.get('desc')
             nickname = aweme_item.get('author').get('nickname')
-            download_addr = aweme_item.get('video').get('download_addr').get('url_list')
-            play_addr = aweme_item.get('video').get('play_addr')
+            play_addr = aweme_item.get('video').get('play_addr').get('url_list')[0]
+
 
             douyin_item['id'] = id
+            douyin_item['douyin_id'] = douyin_id
+            douyin_item['author_desc'] = author_desc
             douyin_item['description'] = desc
             douyin_item['nickname'] = nickname
             douyin_item['play_addr'] = play_addr
-            douyin_item['download_addr'] = download_addr
             douyin_item['user_art'] = self.total_count
 
             yield douyin_item

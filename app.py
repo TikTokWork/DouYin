@@ -1,7 +1,10 @@
-from flask import Flask, flash, redirect, url_for, render_template,request
+from flask import Flask, flash, redirect, url_for, render_template, request, jsonify
+from flask_pymongo import PyMongo
 import subprocess
 
 app = Flask(__name__)
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/TikTok'
+mongo = PyMongo(app)
 
 # 前端首页显示
 @app.route('/', methods=["GET", "POST"])
@@ -12,14 +15,19 @@ def index():
 @app.route('/api/douyin', methods=["GET"])
 def start_douyin_spider():
     user_id = request.args.get('id')
-    scrapy_process = subprocess.Popen('scrapy crawl douyin -a douyinId={}'.format(user_id))
-    if(scrapy_process.poll()):
-        # TODO:打印JSON格式文件数据并且显示在界面上
-        pass
+    author_info = mongo.db.douyin.find({'douyin_id': user_id})
+    if(author_info.count() != 0):
+        return jsonify({
+            'status_code': 200,
+            'user_info': generate_douyin_response(user_id)
+        })
     else:
-        # TODO://返回错误信息
-        pass
-    return redirect('/douyin')
+        subprocess.call('scrapy crawl douyin -a douyinId={}'.format(user_id))
+        # TODO:打印JSON格式文件数据并且显示在界面上
+        return jsonify({
+            'status_code': 200,
+            'user_info': generate_douyin_response(user_id)
+        })
 
 # 前端抖音界面显示
 @app.route('/douyin')
@@ -42,7 +50,34 @@ def about():
     return render_template('about.html')
 
 
+# 从数据库生成JSON格式响应包
+def generate_douyin_response(user_id):
+    compose_list = mongo.db.douyin.find({'douyin_id': user_id})
+    id = ''
+    nickname = ''
+    author_desc = ''
+    aweme_list = []
+    for compose in compose_list:
+        id = compose.get('id')
+        nickname = compose.get('nickname')
+        author_desc = compose.get('author_desc')
+        description = compose.get('description')
+        url = compose.get('play_addr')
+        small_data = {
+            'description': description,
+            'url': url
+        }
+        small_data_add = small_data.copy()
+        aweme_list.append(dict(small_data_add))
 
+    data = {
+        'id': id,
+        'author_desc':author_desc,
+        'nickname': nickname,
+        'aweme_list': aweme_list,
+    }
+
+    return dict(data)
 
 
 

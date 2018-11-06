@@ -11,6 +11,14 @@
     <orderEntry type="library" name="respond" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
   </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/TikTokBot/templates" />
+      </list>
+    </option>
+  </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="Twisted Trial" />
     <option name="PROJECT_TEST_RUNNER" value="Twisted Trial" />

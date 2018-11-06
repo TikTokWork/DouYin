@@ -5,10 +5,11 @@ $(document).ready(function () {
         $.css("background", "red");
     }).click(function () {
         $.css("background", "blue");
+        var requestData = {'id': $("#douyin-user-id").val()};
         $.ajax({
-            url: "/api/douyin",
+            url: "http://localhost:5000/api/douyin",
             dataType: "json",
-            data: {'id': $("#douyin-user-id").val()},
+            data: JSON.stringify(requestData),
             type: "GET",
             success: function (response) {
                 alert("请求成功");
@@ -45,10 +46,11 @@ $(document).ready(function () {
         $.css("background", "red");
     }).click(function () {
         $.css("background", "blue");
+        var requestData = {'id': $("#tiktok-user-id").val()};
         $.ajax({
             url: "/api/tiktok",
             dataType: "json",
-            data: {'id': $("#tiktok-user-id").val()},
+            data: JSON.stringify(requestData),
             type: "GET",
             success: function (response) {
                 alert("请求成功");

@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>抖音下载页面</title>
+    <title>TikTok下载页面</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="static/css/style.css" rel="stylesheet">
-    <link href="static/css/justified-nav.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/justified-nav.css" rel="stylesheet">
 
 
 </head>
@@ -25,11 +25,11 @@
         <h3 class="text-center">抖音&TikTok视频下载</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="index.html">主页</a></li>
-            <li class="active"><a href="DouYin.html">抖音视频下载</a></li>
-            <li><a href="TikTok.html">TikTok视频下载</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="/">主页</a></li>
+            <li class="active"><a href="/douyin">抖音视频下载</a></li>
+            <li><a href="/tiktok">TikTok视频下载</a></li>
+            <li><a href='/about'>关于我们</a></li>
+            <li><a href="/contact">联系我们</a></li>
           </ul>
         </nav>
     </div>
@@ -37,9 +37,9 @@
     <!--从后端获取的数据显示-->
     <h2 class="sub-header">视频下载</h2>
     <ul class="nav nav-justified">
-        <li><h3 id="response-user-id">作者id: </h3></li>
-        <li><h3 id="nickname">作者昵称：</h3></li>
-        <li><h3 id="user-desc">作者简介：</h3></li>
+        <li><h3>作者id: </h3></li>
+        <li><h3>作者昵称：</h3></li>
+        <li><h3>作者简介：</h3></li>
     </ul>
     <div class="table-responsive">
         <table class="table table-striped">
@@ -49,7 +49,7 @@
                     <th>视频URL</th>
                 </tr>
             </thead>
-            <tbody id="list-body">
+            <tbody>
                 <tr>
                     <td>1,001</td>
                     <td>Lorem</td>
@@ -92,11 +92,12 @@
         </table>
     </div>
 
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-
+    <script src="/static/js/ajax.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

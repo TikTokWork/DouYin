@@ -23,7 +23,6 @@ def start_douyin_spider():
         })
     else:
         subprocess.call('scrapy crawl douyin -a douyinId={}'.format(user_id))
-        # TODO:打印JSON格式文件数据并且显示在界面上
         return jsonify({
             'status_code': 200,
             'user_info': generate_douyin_response(user_id)

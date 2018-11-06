@@ -3,32 +3,40 @@ $(document).ready(function () {
     //AJAX控制获取用户输入并且传给后端
     $("#douyin-button").click(function () {
         var requestData = {'id': $("#douyin-user-id").val()};
-        alert(requestData);
         $.ajax({
-            url: "http://localhost:5000/api/douyin",
+            url: "/api/douyin",
             dataType: "json",
-            data: JSON.stringify(requestData),
+            data: $.param(requestData),
             type: "GET",
             success: function (response) {
-                alert("请求成功");
-                var authorId = response["douyin_id"];
-                var authorDesc = response["author_desc"];
-                var nickname = response["nickname"];
-                var list = response["aweme_list"];
+                console.log("请求成功");
+                console.log(response);
+                var authorId = response.user_info.douyin_id;
+                var authorDesc = response.user_infoauthor_desc;
+                var nickname = response.user_info.nickname;
+                var list = response.user_info.aweme_list;
                 //获取作者的id，作者昵称，作者简介
                 $("#response-user-id").append(authorId);
                 $("#nickname").append(nickname);
                 $("#user-desc").append(authorDesc);
 
                 //新建新的节点获取作品的简介，作者的URL
-                list.forEach(function (object) {
+                list.forEach(function (item_list) {
                     var treeH = document.createElement("tr");
-                    for (i in object){
-                        var treeNode = document.createElement("td");
-                        treeNode.innerText = i;
-                        treeH.appendChild(treeNode);
-                    }
-                    $("#list-body").appendChild(treeH);
+                    var treeNode_des = document.createElement("td");
+                    treeNode_des.innerText = item_list.description;
+                    treeH.appendChild(treeNode_des);
+                    var treeNode_url = document.createElement("td");
+                    treeNode_url.innerText = item_list.url;
+                    treeH.appendChild(treeNode_url);
+                    document.getElementById("list-body").appendChild(treeH);
+                    // for (item in item_list){
+                    //     console.log(item.description);
+                    //     console.log(item.url);
+
+
+                    // }
+
                 })
             },
             error: function () {
@@ -48,8 +56,10 @@ $(document).ready(function () {
             data: JSON.stringify(requestData),
             type: "GET",
             success: function (response) {
-                alert("请求成功");
+                console.log("请求成功");
+                console.log(response);
                 var authorId = response["douyin_id"];
+                var uId = response["id"];
                 var authorDesc = response["author_desc"];
                 var nickname = response["nickname"];
                 var list = response["aweme_list"];

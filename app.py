@@ -52,6 +52,7 @@ def about():
 # 从数据库生成JSON格式响应包
 def generate_douyin_response(user_id):
     compose_list = mongo.db.douyin.find({'douyin_id': user_id})
+    douyin_id = user_id
     id = ''
     nickname = ''
     author_desc = ''
@@ -71,6 +72,7 @@ def generate_douyin_response(user_id):
 
     data = {
         'id': id,
+        'douyin_id': douyin_id,
         'author_desc':author_desc,
         'nickname': nickname,
         'aweme_list': aweme_list,

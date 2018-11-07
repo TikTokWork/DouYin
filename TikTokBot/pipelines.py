@@ -25,3 +25,5 @@ class TiktokbotMongoDBPipeline(object):
         elif isinstance(item, TiktokbotItem):
             self.tiktok.insert_one(dict_item)
             return item
+
+

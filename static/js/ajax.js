@@ -3,6 +3,11 @@ $(document).ready(function () {
     //AJAX控制获取用户输入并且传给后端
     $("#douyin-button").click(function () {
         var requestData = {'id': $("#douyin-user-id").val()};
+        $("#list-body").empty();
+        $("#response-user-id").empty();
+        $("#nickname").empty();
+        $("#user-desc").empty();
+        $("#user-num").empty();
         $.ajax({
             url: "/api/douyin",
             dataType: "json",
@@ -12,23 +17,37 @@ $(document).ready(function () {
                 console.log("请求成功");
                 console.log(response);
                 var authorId = response.user_info.douyin_id;
-                var authorDesc = response.user_infoauthor_desc;
+                var authorDesc = response.user_info.author_desc;
                 var nickname = response.user_info.nickname;
                 var list = response.user_info.aweme_list;
+                var userNum = response.user_info.user_art;
+                if(authorDesc === ''){
+                    $("#user-desc").append("暂无简介");
+                } else{
+                    $("#user-desc").append(authorDesc);
+                }
                 //获取作者的id，作者昵称，作者简介
                 $("#response-user-id").append(authorId);
                 $("#nickname").append(nickname);
-                $("#user-desc").append(authorDesc);
+                $("#user-num").append(userNum);
 
                 //新建新的节点获取作品的简介，作者的URL
                 list.forEach(function (item_list) {
                     var treeH = document.createElement("tr");
                     var treeNode_des = document.createElement("td");
-                    treeNode_des.innerText = item_list.description;
+                    if(item_list.description === ''){
+                        treeNode_des.innerText = "作品暂无简介";
+                    } else{
+                        treeNode_des.innerText = item_list.description;
+                    }
                     treeH.appendChild(treeNode_des);
-                    var treeNode_url = document.createElement("td");
+                    var treeNode_dom = document.createElement("td");
+                    var treeNode_url = document.createElement("a");
                     treeNode_url.innerText = item_list.url;
-                    treeH.appendChild(treeNode_url);
+                    treeNode_url.setAttribute('href', item_list.url);
+                    treeNode_url.setAttribute('rel', 'noreferrer');
+                    treeNode_dom.appendChild(treeNode_url);
+                    treeH.appendChild(treeNode_dom);
                     document.getElementById("list-body").appendChild(treeH);
                     // for (item in item_list){
                     //     console.log(item.description);

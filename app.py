@@ -56,12 +56,14 @@ def generate_douyin_response(user_id):
     id = ''
     nickname = ''
     author_desc = ''
+    user_art = ''
     aweme_list = []
     for compose in compose_list:
         id = compose.get('id')
         nickname = compose.get('nickname')
         author_desc = compose.get('author_desc')
         description = compose.get('description')
+        user_art = compose.get('user_art')
         url = compose.get('play_addr')
         small_data = {
             'description': description,
@@ -76,6 +78,7 @@ def generate_douyin_response(user_id):
         'author_desc':author_desc,
         'nickname': nickname,
         'aweme_list': aweme_list,
+        'user_art': user_art,
     }
 
     return dict(data)

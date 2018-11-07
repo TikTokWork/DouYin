@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="/static/css/style.css" rel="stylesheet">
     <link href="/static/css/justified-nav.css" rel="stylesheet">
@@ -51,23 +52,27 @@
     </div>
 
     <ul class="nav nav-justified">
-        <li><h3 id="response-user-id">作者id: </h3></li>
-        <li><h3 id="nickname">作者昵称：</h3></li>
-        <li><h3 id="user-desc">作者简介：</h3></li>
+        <li><h3>作者id: </h3></li>
+        <li><p id="response-user-id"></p></li>
+        <li><h3>作者昵称：</h3></li>
+        <li><p id="nickname"></p></li>
+        <li><h3>作者简介：</h3></li>
+        <li><p id="user-desc"></p></li>
+        <li><h3>作品数量：</h3></li>
+        <li><p id="user-num"></p></li>
     </ul>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>视频简介</th>
-                    <th>视频URL</th>
-                </tr>
-            </thead>
-            <tbody id="list-body">
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th width="300px">视频简介</th>
+                <th width="300px">视频URL</th>
+            </tr>
+        </thead>
+        <tbody id="list-body">
 
-              </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

@@ -5,11 +5,10 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import pymongo
-
 from TikTokBot.items import DouYinBotItem,TiktokbotItem
 
 
-class TiktokbotMongoDBPipeline(object):
+class DouYinbotMongoDBPipeline(object):
     def __init__(self):
         # 连接数据库
         self.client = pymongo.MongoClient(host='127.0.0.1', port=27017)
@@ -25,5 +24,8 @@ class TiktokbotMongoDBPipeline(object):
         elif isinstance(item, TiktokbotItem):
             self.tiktok.insert_one(dict_item)
             return item
+
+
+
 
 

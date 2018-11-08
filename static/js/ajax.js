@@ -46,6 +46,7 @@ $(document).ready(function () {
                     treeNode_url.innerText = item_list.url;
                     treeNode_url.setAttribute('href', item_list.url);
                     treeNode_url.setAttribute('rel', 'noreferrer');
+                    treeNode_url.setAttribute('download', '');
                     treeNode_dom.appendChild(treeNode_url);
                     treeH.appendChild(treeNode_dom);
                     document.getElementById("list-body").appendChild(treeH);

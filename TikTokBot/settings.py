@@ -72,6 +72,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'TikTokBot.pipelines.DouYinbotMongoDBPipeline': 300,
+    'TikTokBot.pipelines.DouYinBotVideoPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

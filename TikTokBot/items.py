@@ -19,7 +19,7 @@ class TiktokbotItem(scrapy.Item):
     play_addr = scrapy.Field() #用户纯链接
 
 class DouYinBotItem(scrapy.Item):
-    id = scrapy.Field() #用户uid
+    aweme_id = scrapy.Field() #作品id
     nickname = scrapy.Field() #用户昵称
     douyin_id = scrapy.Field()  # 用户id
     author_desc = scrapy.Field()  # 用户简介

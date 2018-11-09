@@ -32,32 +32,28 @@ $(document).ready(function () {
                 $("#user-num").append(userNum);
 
                 //新建新的节点获取作品的简介，作者的URL
-                list.forEach(function (item_list) {
+                for (var i = 0; i < list.length; i++) {
                     var treeH = document.createElement("tr");
-                    var treeNode_des = document.createElement("td");
-                    if(item_list.description === ''){
-                        treeNode_des.innerText = "作品暂无简介";
-                    } else{
-                        treeNode_des.innerText = item_list.description;
-                    }
-                    treeH.appendChild(treeNode_des);
+                    // 序号
+                    var treeNum_dom = document.createElement("td");
+                    var treeNum_url = document.createElement("a");
+                    treeNum_url.innerText = i+1;
+                    treeNum_dom.appendChild(treeNum_url);
+                    treeH.appendChild(treeNum_dom);
+
+                    // 获取下载链接
                     var treeNode_dom = document.createElement("td");
                     var treeNode_url = document.createElement("a");
-                    treeNode_url.innerText = item_list.url;
-                    treeNode_url.setAttribute('href', item_list.url);
-                    treeNode_url.setAttribute('rel', 'noreferrer');
-                    treeNode_url.setAttribute('download', '');
+                    var url = '/download/' + authorId + '/' + list[i].aweme_id + '.mp4';
+                    var download_url = list[i].description + '.mp4';
+                    console.log(url, download_url);
+                    treeNode_url.innerText = list[i].description;
+                    treeNode_url.setAttribute('href', url);
+                    treeNode_url.setAttribute('download', download_url);
                     treeNode_dom.appendChild(treeNode_url);
                     treeH.appendChild(treeNode_dom);
                     document.getElementById("list-body").appendChild(treeH);
-                    // for (item in item_list){
-                    //     console.log(item.description);
-                    //     console.log(item.url);
-
-
-                    // }
-
-                })
+                }
             },
             error: function () {
                 alert("请求出错");

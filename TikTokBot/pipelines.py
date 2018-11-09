@@ -19,6 +19,7 @@ class DouYinbotMongoDBPipeline(object):
         self.douyin = self.db['douyin']
         self.tiktok = self.db['tiktok']
 
+
     def process_item(self, item, spider):
         dict_item = dict(item)
         if isinstance(item, DouYinBotItem):
@@ -29,26 +30,23 @@ class DouYinbotMongoDBPipeline(object):
             return item
 
 class DouYinBotVideoPipeline(object):
+    def __init__(self):
+        self.count = 1
+        self.tag = 1
 
     def process_item(self, item, spider):
         video_url = item['play_addr']
-        description = item['description']
+        aweme_id = item['aweme_id']
         data = {
-            'file_name': description,
+            'file_name': aweme_id,
             'download_url': video_url
         }
         file_folder_name = 'D:\\program\\Scrapy\\DouYin\\video\\{}'.format(item['douyin_id'])
         folder = os.path.exists(file_folder_name)
-        count = 1
-        tag = 1
         if not folder:
             os.makedirs(file_folder_name)
         os.chdir(file_folder_name)
-        if(data.get('file_name') == ''):
-            file_name = '未命名' + str(tag) + '.mp4'
-            tag += 1
-        else:
-            file_name = data.get('file_name') + '.mp4'
+        file_name = data.get('file_name') + '.mp4'
         url = data.get('download_url')
         headers = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'}
         request = urllib.request.Request(url, headers=headers)
@@ -56,7 +54,7 @@ class DouYinBotVideoPipeline(object):
         f = open(file_name, 'wb')
         meta = u.info()
         file_size = round(int(meta.get('Content-Length')) / (1024*1024))
-        print("正在下载: %s 大小: %s MB 第%s个文件" % (file_name, file_size, count))
+        print("正在下载: %s 大小: %s MB 第%s个文件" % (file_name, file_size, self.count))
         block_sz = 8192
         while True:
             buffer = u.read(block_sz)
@@ -64,8 +62,8 @@ class DouYinBotVideoPipeline(object):
                 break
             f.write(buffer)
         f.close()
-        print('第%s个文件下载成功' % count)
-        count += 1
+        print('第%s个文件下载成功' % self.count)
+        self.count += 1
         return item
 
 

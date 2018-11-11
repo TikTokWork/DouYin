@@ -83,12 +83,15 @@ class DouyinSpider(scrapy.Spider):
         max_cursor = json_object.get('max_cursor')
         object_list = []
         id = ''
+        desc = ''
         for aweme_item in aweme_list:
             id = aweme_item.get('author_user_id')
             aweme_id = aweme_item.get('aweme_id')
             douyin_id = self.pure_douyin_id
             author_desc = aweme_item.get('author').get('signature')
             desc = aweme_item.get('desc')
+            if not desc.strip():
+                desc = '暂无简介'
             nickname = aweme_item.get('author').get('nickname')
             play_addr = aweme_item.get('video').get('play_addr').get('url_list')[0]
 

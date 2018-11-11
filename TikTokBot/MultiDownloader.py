@@ -2,7 +2,6 @@ import os
 import pymongo
 from urllib.request import urlretrieve
 import time
-from queue import Queue
 from concurrent.futures import wait, ThreadPoolExecutor, ALL_COMPLETED
 
 class MultiDownloader:
@@ -49,7 +48,7 @@ class MultiDownloader:
 
     def multi_douyin_video_download(self, data_list):
         # 抖音id为新建文件夹
-        file_folder_name = 'D:\\program\\Scrapy\\DouYin\\video\\{}'.format(self.douyin_id)
+        file_folder_name = 'E:\\Tik tok\\DouYin\\video\\{}'.format(self.douyin_id)
         folder = os.path.exists(file_folder_name)
         if not folder:
             os.makedirs(file_folder_name)
@@ -61,14 +60,14 @@ class MultiDownloader:
         future_tasks = [executor.submit(self.downloader, data) for data in data_list]
         wait(future_tasks, return_when=ALL_COMPLETED)
 
-if __name__ == '__main__':
-    douyin_id = input('请输入抖音ID：')
-    start_time = time.time()
-    multi_download = MultiDownloader(douyin_id)
-    data_list = multi_download.get_douyin_urls()
-    multi_download.multi_douyin_video_download(data_list)
-    end_time = time.time()
 
-    print('总用时为: %s' % (end_time-start_time))
+# if __name__ == '__main__':
+#     douyin_id = input('请输入抖音ID：')
+#     start_time = time.time()
+#     multi_download = MultiDownloader(douyin_id)
+#     data_list = multi_download.get_douyin_urls()
+#     multi_download.multi_douyin_video_download(data_list)
+#     end_time = time.time()
+#     print('总用时为: %s' % (end_time-start_time))
 
 

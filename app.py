@@ -1,7 +1,10 @@
+import time
+
 from flask import Flask, flash, redirect, url_for, render_template, request, jsonify, send_from_directory, make_response
 from flask_pymongo import PyMongo
 import subprocess
 import os, zipfile
+from TikTokBot import MultiDownloader
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/TikTok'
@@ -25,12 +28,19 @@ def start_douyin_spider():
     else:
         scrapy_process = subprocess.Popen('scrapy crawl douyin -a douyinId={}'.format(user_id))
         if(scrapy_process.wait() == 0):
-            file_path = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
+            start_time = time.time()
+            multi_download = MultiDownloader.MultiDownloader(user_id)
+            data_list = multi_download.get_douyin_urls()
+            multi_download.multi_douyin_video_download(data_list)
+            end_time = time.time()
+            print('总用时为: %s' % (end_time - start_time))
+            file_path = os.path.join('E:\\Tik tok\\DouYin\\video\\', user_id)
             make_zipfile(file_path)
             return jsonify({
                 'status_code': 200,
                 'user_info': generate_douyin_response(user_id)
             })
+
 
 # 前端抖音界面显示
 @app.route('/douyin')
@@ -45,7 +55,7 @@ def tiktok():
 # 下载view
 @app.route('/download/<path:user_id>/<path:file_name>')
 def downloader(user_id, file_name):
-    dirpath = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
+    dirpath = os.path.join('E:\\Tik tok\\DouYin\\video', user_id)
     response = make_response(send_from_directory(dirpath, file_name, as_attachment=True))
     response.headers["Content-Disposition"] = "attachment; filename={}".format(file_name.encode().decode('latin-1'))
     return response

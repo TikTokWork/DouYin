@@ -27,7 +27,6 @@ class MultiDownloader:
             data_copy = data.copy()
             data_list.append(dict(data_copy))
 
-        print(data_list)
         return data_list
 
     # 显示下载速度
@@ -63,7 +62,7 @@ class MultiDownloader:
         wait(future_tasks, return_when=ALL_COMPLETED)
 
 if __name__ == '__main__':
-    douyin_id = input('请输入抖音ID')
+    douyin_id = input('请输入抖音ID：')
     start_time = time.time()
     multi_download = MultiDownloader(douyin_id)
     data_list = multi_download.get_douyin_urls()

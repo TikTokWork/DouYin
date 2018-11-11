@@ -78,21 +78,22 @@ class DouyinSpider(scrapy.Spider):
     def parse_user(self, response):
         douyin_item = DouYinBotItem()
         json_object = json.loads(response.body.decode('utf-8'))
-        print(json_object)
+        # print(json_object)
         aweme_list = json_object.get('aweme_list')
         max_cursor = json_object.get('max_cursor')
         object_list = []
         id = ''
         for aweme_item in aweme_list:
-            id = aweme_item.get('aweme_id')
+            id = aweme_item.get('author_user_id')
+            aweme_id = aweme_item.get('aweme_id')
             douyin_id = self.pure_douyin_id
             author_desc = aweme_item.get('author').get('signature')
             desc = aweme_item.get('desc')
             nickname = aweme_item.get('author').get('nickname')
             play_addr = aweme_item.get('video').get('play_addr').get('url_list')[0]
 
-
-            douyin_item['aweme_id'] = id
+            douyin_item['id'] = id
+            douyin_item['aweme_id'] = aweme_id
             douyin_item['douyin_id'] = douyin_id
             douyin_item['author_desc'] = author_desc
             douyin_item['description'] = desc

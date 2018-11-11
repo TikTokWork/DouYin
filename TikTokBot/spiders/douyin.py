@@ -78,7 +78,7 @@ class DouyinSpider(scrapy.Spider):
     def parse_user(self, response):
         douyin_item = DouYinBotItem()
         json_object = json.loads(response.body.decode('utf-8'))
-        # print(json_object)
+        print(json_object)
         aweme_list = json_object.get('aweme_list')
         max_cursor = json_object.get('max_cursor')
         object_list = []

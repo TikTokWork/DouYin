@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Single</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="index-banner1">
+  <div class="header-top">	
+	<div class="wrap">
+   		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		</div>	
+		<div class="menu">																
+			<a href="#" class="right_bt" id="activator"><img src="images/nav_icon.png" alt=""></a>
+				<div class="box" id="box">
+				  	<div class="box_content_center1">
+					    <div class="menu_box_list1">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li class="active"><a href="about.html">About</a></li> 
+								<li><a href="blog.html">Blog</a></li> 
+								<li><a href="gallery.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li><a href="404.html">404</a></li>
+							</ul>
+					     </div>
+						 <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""></a>
+					 </div>                
+			      </div>
+			                 <script type="text/javascript">
+								var $ = jQuery.noConflict();
+									$(function() {
+										$('#activator').click(function(){
+												$('#box').animate({'top':'0px'},500);
+										});
+										$('#boxclose').click(function(){
+												$('#box').animate({'top':'-700px'},500);
+										});
+									});
+									$(document).ready(function(){
+									
+									//Hide (Collapse) the toggle containers on load
+									$(".toggle_container").hide(); 
+									
+									//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+									$(".trigger").click(function(){
+										$(this).toggleClass("active").next().slideToggle("slow");
+										return false; //Prevent the browser jump to the link anchor
+									});
+									
+									});
+							</script>
+			         </div> 	
+			         <div class="clear"></div>		
+		  </div>	
+		</div>	
+	   </div>
+   	   <div class="main">
+   	     <div class="wrap">
+   	       <div class="abstract">
+		   	 <div class="section group">
+				 <div class="cont1 span_2_of_g1">
+				     <img src="images/b7.jpg" alt=""/> 
+				     <p class="m_6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+				     <p class="m_6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+				     <div class="comments-area">
+							<form>
+								<p>
+									<label>Name</label>
+									<span>*</span>
+									<input type="text" value="">
+								</p>
+								<p>
+									<label>Email</label>
+									<span>*</span>
+									<input type="text" value="">
+								</p>
+								<p>
+									<label>Website</label>
+									<input type="text" value="">
+								</p>
+								<p>
+									<label>Subject</label>
+									<span>*</span>
+									<textarea></textarea>
+								</p>
+								<p>
+									<input type="submit" value="Submit Comment">
+								</p>
+							</form>
+						</div>
+		         </div>
+                 <div class="labout span_1_of_g1">
+			       <h3>Categories</h3>
+				    <section  class="sky-form">
+						<div class="col col-4">
+							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Abstract</label>
+						</div>
+						<div class="col col-4">
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Animals/Wildlife</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>The Arts</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Backgrounds/Textures</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Beauty/Fashion</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Buildings/Landmarks</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Business/Finance</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Celebrities</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Editorial</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Food and Drink</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Healthcare/Medical</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Holidays</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Illustrations/Clip-Art</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Industrial</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Interiors</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Miscellaneous</label>	
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Model Released Only</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Nature</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Objects</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Parks/Outdoor</label>	
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>People</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Religion</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Science</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Signs/Symbols</label>	
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sports/Recreation</label>	
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Technology</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Transportation</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Vectors</label>
+						   <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Vintage</label>	
+					    </div>
+				   </section>
+		      </div>
+		      <div class="clear"></div>	
+		  </div>
+		</div>
+   	 </div>
+   	</div>
+	<div class="footer">
+	   	<div class="wrap">
+	   		<div class="copy">
+			   <p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://www.freemoban.com/">免费模板网</a></p>
+		    </div>
+	   	</div>
+    </div>
+
+</body>
+</html>

@@ -34,7 +34,7 @@ def start_douyin_spider():
             multi_download.multi_douyin_video_download(data_list)
             end_time = time.time()
             print('总用时为: %s' % (end_time - start_time))
-            file_path = os.path.join('E:\\Tik tok\\DouYin\\video\\', user_id)
+            file_path = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
             make_zipfile(file_path)
             return jsonify({
                 'status_code': 200,
@@ -55,7 +55,7 @@ def tiktok():
 # 下载view
 @app.route('/download/<path:user_id>/<path:file_name>')
 def downloader(user_id, file_name):
-    dirpath = os.path.join('E:\\Tik tok\\DouYin\\video', user_id)
+    dirpath = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
     response = make_response(send_from_directory(dirpath, file_name, as_attachment=True))
     response.headers["Content-Disposition"] = "attachment; filename={}".format(file_name.encode().decode('latin-1'))
     return response

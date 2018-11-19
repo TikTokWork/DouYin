@@ -56,7 +56,7 @@ class MultiDownloader:
 
     def multi_douyin_video_download(self):
         # 抖音id为新建文件夹
-        file_folder_name = 'D:\\program\\Scrapy\\DouYin\\video\\{}'.format(self.douyin_id)
+        file_folder_name = 'E:\\Tik tok\\DouYin\\video\\{}'.format(self.douyin_id)
         folder = os.path.exists(file_folder_name)
         if not folder:
             os.makedirs(file_folder_name)
@@ -64,9 +64,10 @@ class MultiDownloader:
 
 
         # 多线程进行下载
-        for x in range(4):
-            thread = Thread(target=self.worker)
+        for x in range(8):
+            thread = Thread(target=self.worker,name=x)
             thread.start()
+            print('%s线程启动' %x)
         self.data_queue.join()
         print('全部下载完成')
 

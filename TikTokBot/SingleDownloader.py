@@ -41,7 +41,7 @@ class SingleDownloader:
 
     def downloader(self, data_list):
         # 抖音id为新建文件夹
-        file_folder_name = 'D:\\program\\Scrapy\\DouYin\\video\\{}'.format(self.douyin_id)
+        file_folder_name = 'E:\\Tik tok\\DouYin\\video\\{}'.format(self.douyin_id)
         folder = os.path.exists(file_folder_name)
         if not folder:
             os.makedirs(file_folder_name)

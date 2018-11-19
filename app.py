@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 import subprocess
 import os, zipfile
 from TikTokBot import MultiDownloader
+from urllib.request import urlretrieve
 
 app = Flask(__name__)
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/TikTok'
@@ -28,20 +29,41 @@ def start_douyin_spider():
     else:
         scrapy_process = subprocess.Popen('scrapy crawl douyin -a douyinId={}'.format(user_id))
         if(scrapy_process.wait() == 0):
-            start_time = time.time()
-            multi_download = MultiDownloader.MultiDownloader(user_id)
-            data_list = multi_download.get_douyin_urls()
-            multi_download.multi_douyin_video_download(data_list)
-            end_time = time.time()
-            print('总用时为: %s' % (end_time - start_time))
-            file_path = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
-            make_zipfile(file_path)
+
+            # file_path = os.path.join('E:\\Tik tok\\DouYin\\video', user_id)
+            # make_zipfile(file_path)
             return jsonify({
                 'status_code': 200,
                 'user_info': generate_douyin_response(user_id)
             })
+@app.route('/api/downloada_all',methods=['GET'])
+def download_all():
+    user_id = request.args.get('id')
+    start_time = time.time()
+    multi_download = MultiDownloader.MultiDownloader(user_id)
+    multi_download.get_douyin_urls()
+    multi_download.multi_douyin_video_download()
+    end_time = time.time()
+    print('总用时为: %s' % (end_time - start_time))
+    return jsonify({
+        'status_code':200,
+    })
 
-
+@app.route('/api/download',methods=['GET'])
+def download():
+    aweme_id = request.args.get('aweme_id')
+    aweme_info = mongo.db.douyin.find({'aweme_id':aweme_id})
+    aweme_url = aweme_info.get('play_addr')
+    file_folder_name = 'E:\\Tik tok\\DouYin\\video\\{}'.format(aweme_id)
+    folder = os.path.exists(file_folder_name)
+    if not folder:
+        os.makedirs(file_folder_name)
+    os.chdir(file_folder_name)
+    file_name =aweme_id+'mp4'
+    urlretrieve(aweme_url,file_name)
+    return jsonify({
+        'status_code':200,
+    })
 # 前端抖音界面显示
 @app.route('/douyin')
 def douyin():
@@ -55,7 +77,7 @@ def tiktok():
 # 下载view
 @app.route('/download/<path:user_id>/<path:file_name>')
 def downloader(user_id, file_name):
-    dirpath = os.path.join('D:\\program\\Scrapy\\DouYin\\video', user_id)
+    dirpath = os.path.join('E:\\Tik tok\\DouYin\\video', user_id)
     response = make_response(send_from_directory(dirpath, file_name, as_attachment=True))
     response.headers["Content-Disposition"] = "attachment; filename={}".format(file_name.encode().decode('latin-1'))
     return response

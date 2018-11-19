@@ -1,5 +1,23 @@
 $(document).ready(function () {
 
+    //点击连接下载
+    function fun(aweme_id) {
+        var requesData = {'aweme_id':aweme_id};
+        $.ajax({
+            url:"/api/download",
+            dataType:"json",
+            data: $.param(requesData),
+            type:"get",
+            success:function (response) {
+                console.log("请求成功");
+                console.log(response);
+            },
+            error: function () {
+                // alert("请求出错");
+                // window.location.reload();
+            }
+        })
+    };
     //AJAX控制获取用户输入并且传给后端
     $("#douyin-button").click(function () {
         var requestData = {'id': $("#douyin-user-id").val()};
@@ -44,12 +62,12 @@ $(document).ready(function () {
                     // 获取下载链接
                     var treeNode_dom = document.createElement("td");
                     var treeNode_url = document.createElement("a");
-                    var url = '/download/' + authorId + '/' + list[i].aweme_id + '.mp4';
-                    var download_url = list[i].description + '.mp4';
-                    console.log(url, download_url);
+                    var download_name = list[i].description + '.mp4';
+                    var aweme_id=list[i].aweme_id;
                     treeNode_url.innerText = list[i].description;
-                    treeNode_url.setAttribute('href', url);
-                    treeNode_url.setAttribute('download', download_url);
+                    treeNode_url.setAttribute('download', download_name);
+                    treeNode_url.setAttribute('href','javascript:void(0);');
+                    treeNode_url.setAttribute('onclick',fun(aweme_id));
                     treeNode_dom.appendChild(treeNode_url);
                     treeH.appendChild(treeNode_dom);
                     document.getElementById("list-body").appendChild(treeH);
@@ -63,6 +81,26 @@ $(document).ready(function () {
         })
 
     });
+    //一键下载
+    $("#download-button").click(function () {
+        var requestData = {'id': $("#douyin-user-id").val()};
+        $.ajax({
+            url:"/api/download_all",
+            dataType:"json",
+            data: $.param(requestData),
+            type:"get",
+            success:function (response) {
+                console.log("请求成功");
+                console.log(response);
+            },
+            error: function () {
+                alert("请求出错");
+                window.location.reload();
+            }
+        })
+    });
+
+
 
     $("#tiktok-button").click(function () {
         var requestData = {'id': $("#tiktok-user-id").val()};
